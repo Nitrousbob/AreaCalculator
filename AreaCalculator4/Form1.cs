@@ -20,7 +20,7 @@ namespace AreaCalculator4
             //btn needs to make a noise when pressed
             //btn also calculates some area
             txtWidth.Text = "314";
-            txtHeight.Text = "42";
+            txtHeight.Text = "42";  //we need to design the perfect question
         }
     }
 }
