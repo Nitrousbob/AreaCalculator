@@ -19,9 +19,14 @@ namespace AreaCalculator4
         {
             //btn needs to make a noise when pressed
             //btn also calculates some area
-            int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
+            if (!Validators.IsMinimumLength(txtWidth.Text, 1) ||
+            Validators.IsMinimumLength(txtHeight.Text, 1));
+            {
+                int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
 
-            //lblTotal.Text = "Total: " + total.ToString();
+                //lblTotal.Text = "Total: " + total.ToString();
+            }
+
         }
     }
 }
