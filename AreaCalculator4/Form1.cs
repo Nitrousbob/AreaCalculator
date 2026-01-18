@@ -17,15 +17,21 @@ namespace AreaCalculator4
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            //btn needs to make a noise when pressed
-            //btn also calculates some area
+            
             if (!Validators.IsMinimumLength(txtWidth.Text, 1) ||
-            Validators.IsMinimumLength(txtHeight.Text, 1));
+            Validators.IsMinimumLength(txtHeight.Text, 1)) ;
             {
+                //calculate width * height and change the total label
                 int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
 
-                //lblTotal.Text = "Total: " + total.ToString();
+                //change the label to show the total
+                lblTotal.Text = "Total: " + total.ToString();
             }
+
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
 
         }
     }

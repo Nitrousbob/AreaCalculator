@@ -6,7 +6,7 @@ namespace AreaCalculator4
 {
     public static class Validators
     {
-        public static bool IsMinimumLength(string value, int min)
+        public static bool IsMinimumLength(string value, int min)  //needs to be static to be called without creating an instance of the class
         {
             return value.Length >= min;
         }
