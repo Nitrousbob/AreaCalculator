@@ -19,15 +19,16 @@ namespace AreaCalculator4
         {
             
             if (!Validators.IsMinimumLength(txtWidth.Text, 1) ||
-            Validators.IsMinimumLength(txtHeight.Text, 1)) ;
+                !Validators.IsMinimumLength(txtHeight.Text, 1)) 
             {
-                //calculate width * height and change the total label
-                int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
-
-                //change the label to show the total
-                lblTotal.Text = "Total: " + total.ToString();
+                MessageBox.Show("Your values are not long enough.", "Error");
+                return;
             }
+            //calculate width * height and change the total label
+            int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
 
+            //change the label to show the total
+            lblTotal.Text = "Total: " + total.ToString();
         }
 
         private void lblTotal_Click(object sender, EventArgs e)
