@@ -18,17 +18,55 @@ namespace AreaCalculator4
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             
-            if (!Validators.IsMinimumLength(txtWidth.Text, 1) ||
-                !Validators.IsMinimumLength(txtHeight.Text, 1)) 
+            if (ValidateField(txtWidth.Text, "The Width Field is too short."))
             {
-                MessageBox.Show("Your values are not long enough.", "Error");
                 return;
             }
+            if (ValidateField(txtHeight.Text, "The Height Field is too short."))
+            {
+                return;
+            }
+
+            if (Validators.ContainsInteger(txtWidth.Text, out int width) == false)
+            {
+                MessageBox.Show("The Width field is not a valid number.", "Error");
+            }
+
+            if (Validators.ContainsInteger(txtHeight.Text, out int height) == false)
+            {
+                MessageBox.Show("The Height field is not a valid number.", "Error");
+            }
+
+            //if (int.TryParse(txtWidth.Text, out int width) == false)
+            //{
+            //    MessageBox.Show("The Width field is not a valid number.", "Error");
+            //    return;
+            //}
+            //if (int.TryParse(txtHeight.Text, out int height) == false)
+            //{
+            //    MessageBox.Show("The Height field is not a valid number.", "Error");
+            //    return;
+            //}
+
             //calculate width * height and change the total label
-            int total = (int.Parse(txtWidth.Text)) * (int.Parse(txtHeight.Text));
+            int total = width * height;
 
             //change the label to show the total
             lblTotal.Text = "Total: " + total.ToString();
+        }
+
+        private bool ValidateField(string field, string errorMsg)
+        {
+            var result = !Validators.IsMinimumLength(field, 1);
+
+            if (result)  //if result is true
+            {
+                var dialogResult = MessageBox.Show(
+                    errorMsg,
+                    "Error"
+                    );
+            }
+            return result;
         }
 
         private void lblTotal_Click(object sender, EventArgs e)

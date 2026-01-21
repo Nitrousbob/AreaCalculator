@@ -10,5 +10,10 @@ namespace AreaCalculator4
         {
             return value.Length >= min;
         }
+
+        public static bool ContainsInteger(string value, out int number)
+        {
+            return int.TryParse(value, out number);
+        }
     }
 }
